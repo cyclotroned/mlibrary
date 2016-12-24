@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mokhtar Library - All Books</title>
+    <% include ../partials/header %>
+    <script>
+      function setID(_id) {
+        document.getElementsByName('selectID')[0].value = _id;
+        document.forms[0].submit();
+      }
+   </script>
+  </head>
+  <body>
+    <form action="/list" method="post"  enctype="multipart/form-data">
+      <input type="hidden" name="selectID" value=""/>
+       <fieldset>
+          <table>
+            <%
+              all_books = all_books || [];
+              if(all_books.length > 0) {
+            %>
+            <thead>
+                <tr>
+                  <th><h4 align="center"><span class="label label-success">Title</span></h4></th>
+                  <th><h4 align="center"><span class="label label-success">Author</span></h4></th>
+                  <th><h4 align="center"><span class="label label-success">ISBN</span></h4></th>
+                </tr>
+            </thead>
+            <tbody>
+            <%
+              all_books.forEach((data) => {
+            %>
+            <tr>
+              <td><h5 align="center"><%= data.name %></h5></td>
+              <td><h5 align="center"><%= data.author %></h5></td>
+              <td>
+                <h5 align="center">
+                  <button type="button" class="btn btn-info btn-sm" onclick="setID('<%= data._id %>');">
+                    <%= data.isbn %>&nbsp;&nbsp;<span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </h5>
+              </td>
+            </tr>
+            <%
+             });
+            %>
+            <% } else { %>
+            <tr>
+              <td colspan='2'><h1 id="message" align="center"><span class="label label-danger">No Books Available</h1></span></td>
+            </tr>
+            <% } %>
+            <tr>
+              <td colspan='2'><input type="submit" name="addbook" class="btn btn-primary" value="Add Book">&nbsp;&nbsp;<span class="badge">now <%= all_books.length %></span></button></td>
+            </tr>
+            </tbody>
+          </table>
+       </fieldset>
+    </form>
+    <% include ../partials/footer %>
+  </body>
+</html>

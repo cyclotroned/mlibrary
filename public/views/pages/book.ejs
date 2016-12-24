@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mokhtar Library - Book Details</title>
+    <% include ../partials/header %>
+    <script>
+      function beforeGo(action, _id, _rev) {
+        if(_id && _rev) {
+          document.getElementsByName('selectID')[0].value = _id;
+          document.getElementsByName('selectRev')[0].value = _rev;
+          document.getElementsByName('doWhat')[0].value = 'Delete';
+        } else {
+          document.getElementsByName('doWhat')[0].value = 'All'
+        }
+        document.forms[0].submit();
+      }
+   </script>
+  </head>
+  <body>
+    <form action="/book" method="post"  enctype="multipart/form-data">
+       <input type="hidden" name="selectID" value=""/>
+       <input type="hidden" name="selectRev" value=""/>
+       <input type="hidden" name="doWhat" value=""/>
+       <fieldset>
+          <table>
+            <tr>
+              <td colspan='2'><h1 id="message" align="center"><span class="label label-info">Book Details</span></h1></td>
+            </tr>
+            <tr>
+              <td><img src="<%= cover %>" width="200" height="300" align="right"/></td>
+              <td>
+                <h4><span class="label label-success">Title: </span></h4><%= book.name %>
+                <h4><span class="label label-success">Author: </span></h4><%= book.author %>
+                <h4><span class="label label-success">ISBN: </span></h4><%= book.isbn %>
+                <h4><span class="label label-success">Description: </span></h4><%= book.description %>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <button type="button" class="btn btn-primary" align="center" onclick="beforeGo(this, null, null);">See All</button>
+                <button type="button" class="btn btn-danger" onclick="beforeGo(this, '<%= book._id %>', '<%= book._rev %>');">
+                  Delete&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </td>
+            </tr>
+          </table>
+       </fieldset>
+    </form>
+    <% include ../partials/footer %>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "NodejsStarterApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cfenv": "^1.0.3",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-alpha.2",
+    "ejs": "^2.5.3",
+    "express": "4.13.x",
+    "formidable": "^1.0.17",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "latest-version": "^2.0.0",
+    "nano": "^6.2.0",
+    "node-uuid": "^1.4.7",
+    "url": "^0.11.0",
+    "util": "^0.10.3"
+  },
+  "repository": {},
+  "engines": {
+    "node": "4.x",
+    "npm": "3.10.8"
+  }
+}

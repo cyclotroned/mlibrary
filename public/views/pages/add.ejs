@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mokhtar Library - Add Book</title>
+    <% include ../partials/header %>
+  </head>
+  <body>
+    <form action="/add" method="post" enctype="multipart/form-data">
+       <fieldset>
+          <table>
+            <tr>
+              <td colspan='2'><h1 id="message" align="center"><span class="label label-info">Add A New Book</span></h1></td>
+            </tr>
+            <tr>
+              <td><h4 align="right"><span class="label label-success">Title</span></h4></td>
+              <td><input type="text" id="name" name="name" placeholder="Enter book title" style="color: black;"/></td>
+            </tr>
+            <tr>
+              <td><h4 align="right"><span class="label label-success">Author</span></h4></td>
+              <td><input type="text" id="author" name="author" placeholder="Enter author name" style="color: black;"/></td>
+            </tr>
+            <tr>
+              <td><h4 align="right"><span class="label label-success">ISBN</span></h4></td>
+              <td><input type="text" id="isbn" name="isbn" placeholder="Enter ISBN" style="color: black;"/></td>
+            </tr>
+            <tr>
+              <td><h4 align="right"><span class="label label-success">Description</span></h4></td>
+              <td><textarea id="description" name="description" style="color: black;" placeholder="Enter a short description about the book"></textarea></td>
+            </tr>
+            <tr>
+              <td><h4 align="right"><span class="label label-success">Cover</span></h4></td>
+              <td>
+                <input type="file" id="cover" name="cover" />
+              </td>
+            </tr>
+            <tr>
+              <td><h4 align="right"><input type="submit" class="btn btn-primary" name="addbook" value="Add Book"/></h4></td>
+              <td><h4 align="left"><input type="submit" class="btn btn-primary" name="addbook" value="Cancel"/></h4></td>
+            </tr>
+          </table>
+       </fieldset>
+    </form>
+    <% include ../partials/footer %>
+  </body>
+</html>
